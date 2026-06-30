@@ -1,0 +1,59 @@
+interface ATMService {
+    void withdraw(double amount);
+    void deposit(double amount);
+    void checkBalance();
+}
+class DBBL implements ATMService {
+    private double balance;
+
+    public DBBL(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: $" + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: $" + amount);
+        } else if (amount > balance) {
+            System.out.println("Transaction Failed: Insufficient funds.");
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+
+    @Override
+    public void checkBalance() {
+        System.out.println("Current DBBL Balance: $" + balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Interface Implementation (DBBL ATM) ===");
+        System.out.println("-------------------------------------------");
+        ATMService atm = new DBBL(10000.00);
+
+        atm.checkBalance();
+        System.out.println();
+
+        atm.deposit(5000.00);
+        atm.checkBalance();
+        System.out.println();
+
+        atm.withdraw(3500.00);
+        atm.checkBalance();
+        System.out.println();
+        atm.withdraw(15000.00);
+    }
+}
