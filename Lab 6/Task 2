@@ -1,0 +1,44 @@
+class Person {
+    String name;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+    }
+}
+class Doctor extends Person {
+    public void prescribeMedicine() {
+        System.out.println("Profession: Doctor -> Treats patients and prescribes medicine.");
+    }
+}
+class Teacher extends Person {
+    public void teach() {
+        System.out.println("Profession: Teacher -> Conducts classes and mentors students.");
+    }
+}
+class Engineer extends Person {
+    public void designSystem() {
+        System.out.println("Profession: Engineer -> Designs software and builds systems.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Hierarchical Inheritance Demonstration ===");
+        System.out.println("----------------------------------------------");
+        Doctor doc = new Doctor();
+        doc.setName("Dr. Sayeeb");
+        doc.displayInfo();         
+        doc.prescribeMedicine();  
+        System.out.println("----------------------------------------------");
+        Teacher prof = new Teacher();
+        prof.setName("Prof.Ahsanul Karim Tanim");
+        prof.displayInfo();       
+        prof.teach();              
+        System.out.println("----------------------------------------------");
+        Engineer eng = new Engineer();
+        eng.setName("Engr. Ejaj");
+        eng.displayInfo();        
+        eng.designSystem();       
+    }
+}
