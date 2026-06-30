@@ -1,0 +1,38 @@
+// Parent class
+class Animal {
+    public void sound() {
+        System.out.println("Some generic sound");
+    }
+}
+// Child class 1
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+// Child class 2
+class Cat extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Cat meows");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Animal Sound (Method Overriding) ===");
+
+        // Creating generic animal object
+        Animal genericAnimal = new Animal();
+        genericAnimal.sound();
+
+        // Creating a Dog object using Polymorphism reference
+        Animal myDog = new Dog();
+        myDog.sound(); // Calls overridden method in Dog class
+
+        // Creating a Cat object using Polymorphism reference
+        Animal myCat = new Cat();
+        myCat.sound(); // Calls overridden method in Cat class
+    }
+}
+
