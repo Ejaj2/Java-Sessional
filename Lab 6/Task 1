@@ -1,0 +1,24 @@
+class Grandfather {
+    public void company() {
+        System.out.println("Grandfather's Legacy: Established the family business.");
+    }
+}
+class Father extends Grandfather {
+    public void car() {
+        System.out.println("Father's Asset: Drives a comfortable sedan.");
+    }
+}
+class Son extends Father {
+    public void smartphone() {
+        System.out.println("Son's Tech: Uses the latest smartphone.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Multilevel Inheritance Demonstration ===");
+        Son sonObj = new Son();
+        sonObj.company();      
+        sonObj.car();         
+        sonObj.smartphone();  
+    }
+}
