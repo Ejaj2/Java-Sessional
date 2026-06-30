@@ -1,0 +1,40 @@
+class BankAccount {
+    private String accountHolder;
+    private String accountNumber;
+    private double balance;
+    public BankAccount(String accountHolder, String accountNumber, double initialBalance) {
+        this.accountHolder = accountHolder;
+        this.accountNumber = accountNumber;
+        if (initialBalance >= 0) {
+            this.balance = initialBalance;
+        } else {
+            this.balance = 0.0;
+        }
+    }
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            System.out.println("Successfully deposited: $" + amount);
+        } else {
+            System.out.println("Error: Deposit amount must be positive.");
+        }
+    }
+    public void showAccountInfo() {
+        System.out.println("Account Holder : " + accountHolder);
+        System.out.println("Account Number : " + accountNumber);
+        System.out.println("Current Balance: $" + balance);
+        System.out.println("------------------------------------");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("=== Secure Bank System (Encapsulation) ===");
+        System.out.println("------------------------------------");
+        BankAccount account = new BankAccount("MD. Ejaj", "9876543210", 1500.00);
+        account.showAccountInfo();
+        account.deposit(500.50);
+        System.out.println("\nUpdated Account Summary:");
+        account.showAccountInfo();
+    }
+}
