@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class PrimeNumberArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter starting number: ");
+        int start = scanner.nextInt();
+        System.out.print("Enter ending number: ");
+        int end = scanner.nextInt();
+
+        if (start > end) {
+            System.out.println("Starting number must be less than or equal to ending number.");
+            return;
+        }
+        int maxRangeSize = end - start + 1;
+        int[] primeNumbers = new int[maxRangeSize];
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                primeNumbers[count] = i;
+                count++;
+            }
+        }
+        System.out.println("\nPrime numbers stored in the array:");
+        if (count == 0) {
+            System.out.println("No prime numbers found in this range.");
+        } else {
+            for (int i = 0; i < count; i++) {
+                System.out.print(primeNumbers[i] + " ");
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false; 
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true; 
+    }
+}
