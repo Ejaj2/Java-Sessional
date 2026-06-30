@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class EvenNumberArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter starting number: ");
+        int start = scanner.nextInt();
+        System.out.print("Enter ending number: ");
+        int end = scanner.nextInt();
+        if (start > end) {
+            System.out.println("Starting number must be less than or equal to ending number.");
+            return;
+        }
+        int maxPossibleEvens = (end - start) / 2 + 1;
+        int[] evenNumbers = new int[maxPossibleEvens];
+        int count = 0;
+        for (int i = start; i <= end; i++) {
+            if (i % 2 == 0) {
+                evenNumbers[count] = i;
+                count++;
+            }
+        }
+        System.out.println("\nPrinting even numbers using WHILE loop:");
+        if (count == 0) {
+            System.out.println("No even numbers found in this range.");
+        } else {
+            int index = 0;
+            while (index < count) {
+                System.out.print(evenNumbers[index] + " ");
+                index++;
+            }
+            System.out.println();
+        }
+        System.out.println("\nPrinting even numbers using DO-WHILE loop:");
+        if (count == 0) {
+            System.out.println("No even numbers found in this range.");
+        } else {
+            int index = 0;
+            do {
+                System.out.print(evenNumbers[index] + " ");
+                index++;
+            } while (index < count);
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}
